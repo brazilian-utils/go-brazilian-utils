@@ -1,0 +1,10 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: circleci/golang
+    working_directory: /go/src/github.com/brazilian-utils/go-brazilian-utils
+    steps:
+      - checkout
+      - run: go test -v ./...
