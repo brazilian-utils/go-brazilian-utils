@@ -27,7 +27,7 @@ var tables = []struct {
 	{"962a.718b.458c-60s", false},
 }
 
-func TestValidate(t *testing.T) {
+func TestValidateCPF(t *testing.T) {
 	for _, table := range tables {
 		if res := cpf.IsValid(table.input); res != table.expected {
 			t.Errorf("CPF validation failed for %v \t Expected: %v | Received: %v", table.input, table.expected, res)
@@ -35,13 +35,13 @@ func TestValidate(t *testing.T) {
 	}
 }
 
-func BenchmarkValidateValidWithouMask(b *testing.B) {
+func BenchmarkValidateValidCPFWithouMask(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		cpf.IsValid("403644788290")
 	}
 }
 
-func BenchmarkValidateBlacklistedWithoutMask(b *testing.B) {
+func BenchmarkValidateBlacklistedCPFWithoutMask(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		cpf.IsValid("00000000000")
 	}

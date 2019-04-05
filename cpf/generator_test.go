@@ -6,7 +6,7 @@ import (
 	"github.com/brazilian-utils/go-brazilian-utils/cpf"
 )
 
-func TestGenerator(t *testing.T) {
+func TestGenerateCPF(t *testing.T) {
 	generated := cpf.Generate()
 
 	if len(generated) != 11 {
@@ -18,7 +18,7 @@ func TestGenerator(t *testing.T) {
 	}
 }
 
-func BenchmarkGeneratorWithoutMask(b *testing.B) {
+func BenchmarkGenerateCPF(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		generated := cpf.Generate()
 
